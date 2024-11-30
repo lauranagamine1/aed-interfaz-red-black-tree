@@ -9,6 +9,7 @@ app = Flask(__name__)
 CORS(app)
 
 # utiliza la clase RedBlackTree de red_back_tree.py
+# todavia no funciona
 
 @app.route('/api/v1/rbtree', methods=['POST'])
 def process_tree():
