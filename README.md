@@ -8,8 +8,8 @@
 
 ## Team Members 
 
-| Name                | Email                          | GitHub User    |
+| Nombre              | Email                          | GitHub    |
 |---------------------|--------------------------------|----------------|
 | Laura Nagamine      | laura.nagamine@utec.edu.pe     | [lauranagamine1](https://github.com/lauranagamine1) |
-| Mikel Bracamonte    |  |  |
-| Renato García       |        |  |
+| Mikel Bracamonte    | mikel.bracamonte@utec.edu.pe   | [Mikel-Bracamonte](https://github.com/Mikel-Bracamonte) |
+| Renato García       | renato.garcia@utec.edu.pe       | [ReatorGee](https://github.com/ReatorGee) |
