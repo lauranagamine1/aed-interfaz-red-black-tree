@@ -1,12 +1,12 @@
 # Red-Black Tree
 
 ## Descripción
-Implementación gráfica del Red-Black Tree, usando Python.
+Implementación gráfica del Red-Black Tree, usando Flask en Python.
 
 ## Características principales
 Al recibir una cantidad de nodos y aristas, la interfaz va a crear un Red-Black Tree correspondiente, coloreando los nodos de color negro o rojo como corresponda.
 
-Siendo "n" la cantidad de nodos, [límite]
+[límites]
 
 ## Instalación
 
