@@ -2,11 +2,11 @@
 
 ## Descripción
 
-## Key features:
+## Características principales
 
-## Instalation 
+## Instación
 
-## Team Members 
+## Miembros del equipo 
 
 | Nombre              | Email                          | GitHub    |
 |---------------------|--------------------------------|----------------|
