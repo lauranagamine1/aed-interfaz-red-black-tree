@@ -9,7 +9,11 @@ app = Flask(__name__)
 CORS(app)
 
 # utiliza la clase RedBlackTree de red_back_tree.py
-# todavia no funciona
+# todavia no funciona, probar con postman primero
+
+#para inciar:
+# pip install flask, flask-cors, matplotlib, networkx
+# python server.py
 
 @app.route('/api/v1/rbtree', methods=['POST'])
 def process_tree():
