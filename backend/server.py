@@ -5,6 +5,7 @@ import networkx as nx
 import matplotlib
 import matplotlib.pyplot as plt
 from red_black_tree import RedBlackTree  # Asegúrate de tener esta clase definida
+import random
 
 app = Flask(__name__)
 CORS(app)
@@ -19,17 +20,8 @@ matplotlib.use('Agg')
 
 rbt = RedBlackTree()
 
-@app.route('/api/v1/rbtree', methods=['POST'])
 def process_tree():
-    try:
-        # recibe datos del arbol, dado keys
-        data = request.json
-        keys = data.get("keys", [])
-
-        for key in keys:
-            rbt.insert(key)
-
-        # Crear el grafo visual del árbol
+    # Crear el grafo visual del árbol
         G = nx.DiGraph()
         def add_edges(node):
             if node is not None and node != rbt.TNULL:
@@ -62,6 +54,67 @@ def process_tree():
         output_path = "static/rbtree.png"
         plt.savefig(output_path)
         plt.close()
+
+@app.route('/api/v1/rbtree/keys', methods=['POST'])
+def insert_keys():
+    try:
+        # recibe datos del arbol, dado keys
+        data = request.json
+        keys = data.get("keys", [])
+
+        for key in keys:
+            rbt.insert(key)
+
+        process_tree()
+
+        return jsonify({"imageUrl": f"http://localhost:5000/static/rbtree.png"}), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/api/v1/rbtree/keys', methods=['DELETE'])
+def delete_keys():
+    try:
+        # recibe datos del arbol, dado keys
+        data = request.json
+        keys = data.get("keys", [])
+
+        for key in keys:
+            rbt.delete(key)
+
+        process_tree()
+
+        return jsonify({"imageUrl": f"http://localhost:5000/static/rbtree.png"}), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/api/v1/rbtree/keys/random', methods=['POST'])
+def insert_random_keys():
+    try:
+        # recibe datos del arbol, dado keys
+        data = request.json
+        min = data.get("keys", 0)
+        max = data.get("max", 100)
+        num = data.get("num", 1)
+
+        for _ in range(num):
+            rbt.insert(random.randint(min, max))
+
+        process_tree()
+
+        return jsonify({"imageUrl": f"http://localhost:5000/static/rbtree.png"}), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
+@app.route('/api/v1/rbtree/clear', methods=['POST'])
+def clear_tree():
+    try:
+        # recibe datos del arbol, dado keys
+        rbt.clear()
+
+        process_tree()
 
         return jsonify({"imageUrl": f"http://localhost:5000/static/rbtree.png"}), 200
 

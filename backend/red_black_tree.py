@@ -111,6 +111,113 @@ class RedBlackTree:
 
         self.insert_fixup(node)
 
+    def transplant(self, u, v):
+        """Reemplaza el subárbol con raíz en u por el subárbol con raíz en v"""
+        if u.parent == None:
+            self.root = v  # Si u es la raíz, entonces v se convierte en la nueva raíz
+        elif u == u.parent.left:
+            u.parent.left = v
+        else:
+            u.parent.right = v
+        v.parent = u.parent
+
+    def delete_fixup(self, x):
+        """Repara el árbol después de la eliminación de un nodo"""
+        while x != self.root and x.color == 'black':
+            if x == x.parent.left:
+                w = x.parent.right
+                if w.color == 'red':  # Caso 1: El hermano es rojo
+                    w.color = 'black'
+                    x.parent.color = 'red'
+                    self.rotate_left(x.parent)
+                    w = x.parent.right
+                if w.left.color == 'black' and w.right.color == 'black':  # Caso 2: El hermano es negro y ambos hijos son negros
+                    w.color = 'red'
+                    x = x.parent
+                else:
+                    if w.right.color == 'black':  # Caso 3: El hermano es negro y el hijo derecho es negro
+                        w.left.color = 'black'
+                        w.color = 'red'
+                        self.rotate_right(w)
+                        w = x.parent.right
+                    w.color = x.parent.color
+                    x.parent.color = 'black'
+                    w.right.color = 'black'
+                    self.rotate_left(x.parent)
+                    x = self.root
+            else:
+                w = x.parent.left
+                if w.color == 'red':
+                    w.color = 'black'
+                    x.parent.color = 'red'
+                    self.rotate_right(x.parent)
+                    w = x.parent.left
+                if w.right.color == 'black' and w.left.color == 'black':
+                    w.color = 'red'
+                    x = x.parent
+                else:
+                    if w.left.color == 'black':
+                        w.right.color = 'black'
+                        w.color = 'red'
+                        self.rotate_left(w)
+                        w = x.parent.left
+                    w.color = x.parent.color
+                    x.parent.color = 'black'
+                    w.left.color = 'black'
+                    self.rotate_right(x.parent)
+                    x = self.root
+        x.color = 'black'
+
+    def delete(self, key):
+        """Elimina el nodo con el valor `key` del árbol"""
+        z = self.root
+        while z != self.TNULL:
+            if z.key == key:
+                break
+            elif key < z.key:
+                z = z.left
+            else:
+                z = z.right
+        
+        if z == self.TNULL:  # Si el nodo no existe
+            print("El nodo con valor {} no fue encontrado.".format(key))
+            return
+        
+        y = z
+        y_original_color = y.color
+        if z.left == self.TNULL:
+            x = z.right
+            self.transplant(z, z.right)
+        elif z.right == self.TNULL:
+            x = z.left
+            self.transplant(z, z.left)
+        else:
+            y = self.minimum(z.right)
+            y_original_color = y.color
+            x = y.right
+            if y.parent == z:
+                x.parent = y
+            else:
+                self.transplant(y, y.right)
+                y.right = z.right
+                y.right.parent = y
+            self.transplant(z, y)
+            y.left = z.left
+            y.left.parent = y
+            y.color = z.color
+
+        if y_original_color == 'black':
+            self.delete_fixup(x)
+
+    def minimum(self, node):
+        """Devuelve el nodo con el valor mínimo en el subárbol de `node`"""
+        while node.left != self.TNULL:
+            node = node.left
+        return node
+
+    def clear(self):
+        self.root = self.TNULL
+
     def inorder_helper(self, node):
         if node != self.TNULL:
             self.inorder_helper(node.left)
@@ -120,6 +227,7 @@ class RedBlackTree:
     def print_tree(self):
         self.inorder_helper(self.root)
         print()
+
 
 # Test de la clase RedBlackTree
 if __name__ == "__main__":
