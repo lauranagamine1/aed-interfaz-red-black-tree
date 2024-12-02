@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { createNodes, deleteNodes, clearTree}  from './api/requests'
 
-// https://colorhunt.co/palette/14285027496d0c7b9300a8cc
+// https://colorhunt.co/palette/f6f1f1afd3e219a7ce146c94
 
 function App() {
 
