@@ -220,13 +220,16 @@ class RedBlackTree:
 
     def inorder_helper(self, node):
         if node != self.TNULL:
-            self.inorder_helper(node.left)
-            print(node.key, end=" ")
-            self.inorder_helper(node.right)
+            # print(node.key, end=" ") 
+            return (self.inorder_helper(node.left) + 1 + self.inorder_helper(node.right))
+        return 0
 
     def print_tree(self):
         self.inorder_helper(self.root)
         print()
+
+    def get_size(self):
+        return self.inorder_helper(self.root)
 
 
 # Test de la clase RedBlackTree

@@ -21,7 +21,12 @@ matplotlib.use('Agg')
 rbt = RedBlackTree()
 
 def process_tree():
-    # Crear el grafo visual del árbol
+    try:
+        n_nodes = rbt.get_size()
+        ratio = 1/3
+        val = 10 + n_nodes/10
+        fig, ax = plt.subplots(figsize=(val, val*ratio))
+        # Crear el grafo visual del árbol
         G = nx.DiGraph()
         def add_edges(node):
             if node is not None and node != rbt.TNULL:
@@ -35,8 +40,8 @@ def process_tree():
         add_edges(rbt.root)
 
         # Dibujar el árbol
-        fig, ax = plt.subplots()
         pos = nx.drawing.nx_agraph.graphviz_layout(G, prog='dot')
+
         # Extraer colores de los nodos desde sus atributos
         node_colors = [data['color'] for _, data in G.nodes(data=True)]
         node_labels = {n: G.nodes[n]['label'] for n in G.nodes}
@@ -49,13 +54,15 @@ def process_tree():
             node_color=node_colors,
             font_weight='bold',
             edge_color='black',
-            font_color='white'
+            font_color='white',
         )
         fig.patch.set_facecolor('#146C94')
         #plt.title("Red-Black Tree")
         output_path = "static/rbtree.png"
         plt.savefig(output_path)
         plt.close()
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 @app.route('/api/v1/rbtree/keys', methods=['POST'])
 def insert_keys():
