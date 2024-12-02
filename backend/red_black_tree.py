@@ -126,7 +126,7 @@ if __name__ == "__main__":
     rbt = RedBlackTree()
 
     # Insertar elementos en el árbol
-    keys = [20, 15, 25, 10, 5, 1, 30]
+    keys = [20, 15, 25, 10, 5, 1, 30, 1, 10]
     for key in keys:
         rbt.insert(key)
 
