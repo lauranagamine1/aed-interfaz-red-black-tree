@@ -35,6 +35,7 @@ def process_tree():
         add_edges(rbt.root)
 
         # Dibujar el árbol
+        fig, ax = plt.subplots()
         pos = nx.drawing.nx_agraph.graphviz_layout(G, prog='dot')
         # Extraer colores de los nodos desde sus atributos
         node_colors = [data['color'] for _, data in G.nodes(data=True)]
@@ -50,7 +51,8 @@ def process_tree():
             edge_color='black',
             font_color='white'
         )
-        plt.title("Red-Black Tree")
+        fig.patch.set_facecolor('#146C94')
+        #plt.title("Red-Black Tree")
         output_path = "static/rbtree.png"
         plt.savefig(output_path)
         plt.close()
