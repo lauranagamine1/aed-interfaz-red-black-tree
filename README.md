@@ -10,7 +10,7 @@ Al recibir una cantidad de nodos y aristas, la interfaz va a crear un Red-Black 
 
 ## Instalación
 
-1. Descargar e instalar cmake ubicado dentro de la carpeta "downloads". Luego, agregar al PATH de Windows.
+1. Descargar e instalar cmake ubicado dentro de la carpeta installation (/installation). Luego, agregar al PATH de Windows.
 2. En la terminal, dirigirse a la carpeta donde se encuentra la clonación de este repositorio y ejecutar:
 
    python3 -m pip install flask, flask-cors, matplotlib, networkx pygraphviz
