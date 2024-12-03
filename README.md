@@ -13,14 +13,16 @@ Al recibir una cantidad de nodos y aristas, la interfaz va a crear un Red-Black 
 1. Descargar e instalar Graphviz ubicado dentro de la carpeta installation (/installation). Durante la instalación, agregar el sistema PATH.
 2. En la terminal, dirigirse a la carpeta donde se encuentra la clonación de este repositorio y ejecutar:
    ```
-   python3 -m pip install flask, flask-cors, matplotlib, networkx pygraphviz
-4. Dirigirse a la carpeta de Backend (/backend) y ejecutar python3 server.py
-5. Dirigirse a la carpeta de Frontend luego  aed-rbtree (/frontend/aed-rbtree) y poner:
+   python -m pip install flask, flask-cors, matplotlib, networkx pygraphviz
+4. Dirigirse a la carpeta de Backend (/backend) y ejecutar
+   ```
+   python3 server.py
+6. Dirigirse a la carpeta de Frontend luego  aed-rbtree (/frontend/aed-rbtree) y poner:
    ```
    npm install
    npm run dev
    ```
-6. Abrir el link en un navegador.
+7. Abrir el link en un navegador.
 
 ## Miembros del equipo 
 
