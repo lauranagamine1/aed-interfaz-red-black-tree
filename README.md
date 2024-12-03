@@ -16,7 +16,7 @@ Al recibir una cantidad de nodos y aristas, la interfaz va a crear un Red-Black 
    python -m pip install flask, flask-cors, matplotlib, networkx pygraphviz
 4. Dirigirse a la carpeta de Backend (/backend) y ejecutar
    ```
-   python3 server.py
+   python server.py
 6. Dirigirse a la carpeta de Frontend luego  aed-rbtree (/frontend/aed-rbtree) y poner:
    ```
    npm install
