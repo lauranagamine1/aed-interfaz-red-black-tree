@@ -93,15 +93,27 @@ function App() {
       <div>
         <img style={{width: '100%', objectFit: 'cover'}} src={imageUrl}/>
       </div>
-      <div style={{padding: '10px', display: 'flex'}}>
-        <input value={min} onChange={handleChangeMin} style={{backgroundColor: '#146C94', border: '2px solid #27496D', padding: '8px 12px', borderRadius: '4px', margin: '0px 8px', width: '30px'}}/>
-        <input value={max} onChange={handleChangeMax} style={{backgroundColor: '#146C94', border: '2px solid #27496D', padding: '8px 12px', borderRadius: '4px', margin: '0px 8px', width: '30px'}}/>
-        <input value={num} onChange={handleChangeNum} style={{backgroundColor: '#146C94', border: '2px solid #27496D', padding: '8px 12px', borderRadius: '4px', margin: '0px 8px', width: '30px'}}/>
+      <div style={{padding: '10px', display: 'flex', alignItems: 'end'}}>
+        <div style={{margin: '0px 8px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+          <p style={{margin: '0px 0px'}}>Mín</p>
+          <input value={min} onChange={handleChangeMin} style={{backgroundColor: '#146C94', border: '2px solid #27496D', borderRadius: '4px', width:'30px', height:'20px', padding: '8px 12px'}}/>
+        </div>
+        <div style={{margin: '0px 8px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+          <p style={{margin: '0px 0px'}}>Máx</p>
+          <input value={max} onChange={handleChangeMax} style={{backgroundColor: '#146C94', border: '2px solid #27496D', borderRadius: '4px', width:'30px', height:'20px', padding: '8px 12px'}}/>
+        </div>
+        <div style={{margin: '0px 8px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+          <p style={{margin: '0px 0px'}}>Num</p>
+          <input value={num} onChange={handleChangeNum} style={{backgroundColor: '#146C94', border: '2px solid #27496D', borderRadius: '4px', width:'30px', height:'20px', padding: '8px 12px'}}/>
+        </div>
         <button onClick={handleGenerateRandom} style={{margin: '0px 8px'}}>
           Generar aleatorios
         </button>
         <div style={{border: '1px solid #27496D'}}/>
-        <input value={postKeys} onChange={handleChange} style={{backgroundColor: '#146C94', border: '2px solid #27496D', padding: '8px 12px', borderRadius: '4px', margin: '0px 8px', width: '300px'}}/>
+        <div style={{margin: '0px 8px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+          <p style={{margin: '0px 0px'}}>Nodos</p>
+          <input value={postKeys} onChange={handleChange} style={{backgroundColor: '#146C94', border: '2px solid #27496D', borderRadius: '4px', width:'300px', height:'20px', padding: '8px 12px'}}/>
+        </div>
         <button onClick={handleCreateNodes} style={{margin: '0px 8px'}}>
           Insertar nodos
         </button>
