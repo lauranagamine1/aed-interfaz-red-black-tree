@@ -24,9 +24,22 @@ La interfaz va a crear un Red-Black Tree correspondiente, coloreando los nodos d
 4. Dirigirse a la carpeta de Backend (/backend) y ejecutar
    ```
    python server.py
-6. Dirigirse a la carpeta de Frontend luego  aed-rbtree (/frontend/aed-rbtree) y poner:
+6. Dirigirse a la carpeta de Frontend luego  aed-rbtree (/frontend/aed-rbtree) y ejecutar:
    ```
    npm install
    npm run dev
    ```
-7. Abrir el link en un navegador.
+7. Abrir el url en un navegador. Debería verse así:
+   
+   Inicializar backend: 
+   ![image](https://github.com/user-attachments/assets/4c45166a-c233-4360-8324-4060f747faeb)
+   ![Captura de pantalla 2024-12-03 105034](https://github.com/user-attachments/assets/e78d769a-1451-4d38-bff7-871fd4876c2c)
+
+   Inicializar frontend:
+   ![image](https://github.com/user-attachments/assets/1f73aa55-98a3-42ad-8ec6-522a39c1d1a2)
+
+   Interfaz:
+   ![image](https://github.com/user-attachments/assets/4484e560-915b-40f9-a172-35704a0ace7e)
+
+9. Cuando se quiera cerrar el servidor, presionar ctrl + c en el terminal de backend y frontend.
+
